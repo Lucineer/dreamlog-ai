@@ -1,7 +1,7 @@
 // DreamLog.ai — Dream Tracker
 // Built by Superinstance & Lucineer (DiGennaro et al.)
 
-export interface Env { KV: KVNamespace }
+// No bindings needed
 
 const CSP = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*;";
 
@@ -44,7 +44,7 @@ body{font-family:'Inter',system-ui;background:#07060f;color:#e0e0e0;min-height:1
 }
 
 export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
+  async fetch(request: Request, env: any): Promise<Response> {
     const url = new URL(request.url);
     const h = { 'Content-Type': 'text/html;charset=utf-8', 'Content-Security-Policy': CSP };
     const j = { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' };
