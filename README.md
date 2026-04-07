@@ -1,50 +1,51 @@
-# DreamLog.ai — AI Dream Journal
+# DreamLog
+You wake up with a fading dream. This helps you keep it.
 
-You often forget dreams soon after waking. This helps you hold onto them.
+A private, self-hosted dream journal that logs and reviews your dreams. Built for the Cocapn Fleet.
 
-A private AI dream journal that captures and reviews your dreams. Built on the Cocapn Fleet as a lightweight, single-file agent you deploy yourself.
-
-**Live instance:** https://dreamlog-ai.casey-digennaro.workers.dev
+✅ Live: https://dreamlog-ai.casey-digennaro.workers.dev
 
 ---
 
-## Why
-Most dream journals are either static note-taking apps or cloud services that own your data. This one runs on your own infrastructure. It does one thing well and will keep working as long as you want it to.
+## Why this exists
+Most dream journals are passive notebooks. This helps you notice patterns—like dreaming of being unprepared before important events—by reviewing your history.
+
+---
+
+## How it works
+*   **Private by default:** No accounts, tracking, or email. Your entries stay within the Cloudflare Worker you deploy.
+*   **No distractions:** A simple text interface for quick morning entries, with no notifications or gamification.
+*   **Self-contained:** One file (`worker.ts`) with zero runtime dependencies. No external API calls are required.
+*   **Own your tool:** Fork this repository and modify it for your own use. You are not renting software.
+
+---
 
 ## What it does
-*   Lets you log a dream quickly after waking.
-*   Provides AI analysis of themes, tone, and symbols—using your own API key.
-*   Surfaces recurring patterns over time using simple browser storage.
-*   Runs privately. No data leaves your machine unless you send it to an AI model.
-*   Entirely modifiable. Change prompts, swap models, or adjust the interface.
-*   Zero dependencies. One file. Deploys in seconds.
+*   Provides a clean, fast interface for logging dreams.
+*   Lists past entries on a single timeline for personal review.
+*   Highlights repeated words and themes across your entries using basic text analysis.
+*   Fleet-native: Can be connected to other personal agents on the Cocapn Fleet.
+*   Configurable: You can modify the analysis logic or theme by editing a few lines in the worker.
+*   Deploys as a Cloudflare Worker in under a minute.
 
-## How it's different
-*   **You fork it.** You don't sign up. Once deployed, it's yours.
-*   No bloat. No `npm install`. No database to manage.
-*   Fleet-native. You can plug in other Fleet agents for additional features.
-*   BYOK (Bring Your Own Keys) by design. We provide the structure; you bring your AI key and rules.
+**One Limitation:** The pattern detection is based on simple text matching. For advanced semantic analysis, you will need to customize the worker with your own logic or LLM integration.
 
-## Quick start
-Use the public instance linked above to try it.
+---
 
-To deploy your own private copy:
-1.  Fork this repository.
-2.  Deploy to Cloudflare Workers (it's a one-click process).
-3.  Add your OpenAI API key in the dashboard environment variables (`AI_API_KEY`).
-4.  It's live. Edit `worker.ts` to customize.
+## Quick Start
+1.  **Fork** this repository.
+2.  ​**Deploy** it to Cloudflare Workers.
+3.  Start logging dreams. Modify `worker.ts` to change how it works.
 
-## One limitation
-This is a browser-based app. Your dream entries are stored locally in your browser's localStorage. If you clear your browser data, they will be lost unless you've implemented a personal backup.
-
-## Modify everything
-The code is straightforward. You can edit the analysis prompts, change how dreams are stored, or connect a different LLM by modifying the `/api/analyze` route in `worker.ts`.
+---
 
 ## Contributing
-Improvements are welcome. Please open an issue first to discuss any changes.
+This is a Stage 2 Expander in the Cocapn Fleet. Suggestions for improved usability or code clarity are welcome. Please open an issue to discuss significant changes.
+
+---
 
 ## License
-MIT
+MIT License.
 
 Superinstance & Lucineer (DiGennaro et al.).
 
