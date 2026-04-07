@@ -1,51 +1,35 @@
-# DreamLog
-You wake up with a fading dream. This helps you keep it.
+DreamLog.ai is a private, self-hosted dream journal. Capture an entry when you wake up. Review a simple timeline later. It's an agent for the Cocapn Fleet.
 
-A private, self-hosted dream journal that logs and reviews your dreams. Built for the Cocapn Fleet.
-
-✅ Live: https://dreamlog-ai.casey-digennaro.workers.dev
+✅ **Live:** https://dreamlog-ai.casey-digennaro.workers.dev
 
 ---
 
-## Why this exists
-Most dream journals are passive notebooks. This helps you notice patterns—like dreaming of being unprepared before important events—by reviewing your history.
+## Why This Exists
+Most journals add accounts, features, or complexity. This is a single text box that saves to your own Cloudflare Worker. You control the data and the code.
 
----
+## What It Is
+*   **Private.** No accounts. No tracking. Data lives only in your worker's KV storage.
+*   **Fork-first.** This is a template. Copy it, modify it, and own your version.
+*   **Zero dependencies.** One file (`worker.ts`). Deploys in under a minute.
+*   **Fleet-native.** Uses the Cocapn agent protocol. Can connect to other tools in your personal fleet.
 
-## How it works
-*   **Private by default:** No accounts, tracking, or email. Your entries stay within the Cloudflare Worker you deploy.
-*   **No distractions:** A simple text interface for quick morning entries, with no notifications or gamification.
-*   **Self-contained:** One file (`worker.ts`) with zero runtime dependencies. No external API calls are required.
-*   **Own your tool:** Fork this repository and modify it for your own use. You are not renting software.
-
----
-
-## What it does
-*   Provides a clean, fast interface for logging dreams.
-*   Lists past entries on a single timeline for personal review.
-*   Highlights repeated words and themes across your entries using basic text analysis.
-*   Fleet-native: Can be connected to other personal agents on the Cocapn Fleet.
-*   Configurable: You can modify the analysis logic or theme by editing a few lines in the worker.
-*   Deploys as a Cloudflare Worker in under a minute.
-
-**One Limitation:** The pattern detection is based on simple text matching. For advanced semantic analysis, you will need to customize the worker with your own logic or LLM integration.
-
----
+## What It Does
+*   **One-box input.** A distraction-free page for quick morning notes.
+*   **Timeline view.** A reverse-chronological list of all entries.
+*   **Pattern highlighting.** Basic keyword matching surfaces repeated themes, people, or places.
+*   **Standard agent endpoints.** Includes `/health` and `/graph` for fleet interoperability.
+*   **Modifiable analysis.** The pattern logic is simple and meant to be replaced or extended.
 
 ## Quick Start
-1.  **Fork** this repository.
-2.  ​**Deploy** it to Cloudflare Workers.
-3.  Start logging dreams. Modify `worker.ts` to change how it works.
+1.  Fork this repository.
+2.  Deploy to Cloudflare Workers.
+3.  Your journal is ready. Edit `worker.ts` to change any behavior.
 
----
-
-## Contributing
-This is a Stage 2 Expander in the Cocapn Fleet. Suggestions for improved usability or code clarity are welcome. Please open an issue to discuss significant changes.
-
----
+## Limitations
+This is a foundation. The default analysis is basic keyword matching, not AI. For advanced features like sentiment tracking or LLM summaries, you will need to add that logic yourself.
 
 ## License
-MIT License.
+MIT
 
 Superinstance & Lucineer (DiGennaro et al.).
 
