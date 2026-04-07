@@ -1,40 +1,48 @@
-DreamLog.ai is a private, self-hosted dream journal. Capture an entry when you wake up. Review a simple timeline later. It's an agent for the Cocapn Fleet.
+# DreamLog.ai
 
-✅ **Live:** https://dreamlog-ai.casey-digennaro.workers.dev
+You remember a fragment, jot it down, and move on. Weeks later, you realize the same strange symbol has appeared seven times. This catches that.
+
+It runs on your Cloudflare account. There is no central service. No one else ever sees your notes.
+
+**Live Demo:** https://dreamlog-ai.casey-digennaro.workers.dev
 
 ---
 
-## Why This Exists
-Most journals add accounts, features, or complexity. This is a single text box that saves to your own Cloudflare Worker. You control the data and the code.
+## Why It Exists
+Most journals are inert archives. You are unlikely to manually review dozens of entries to find subtle patterns. This highlights recurring words and themes automatically, without sending a single character of your private writing to an external API. It was built for keeping your inner world to yourself.
 
-## What It Is
-*   **Private.** No accounts. No tracking. Data lives only in your worker's KV storage.
-*   **Fork-first.** This is a template. Copy it, modify it, and own your version.
-*   **Zero dependencies.** One file (`worker.ts`). Deploys in under a minute.
-*   **Fleet-native.** Uses the Cocapn agent protocol. Can connect to other tools in your personal fleet.
-
-## What It Does
-*   **One-box input.** A distraction-free page for quick morning notes.
-*   **Timeline view.** A reverse-chronological list of all entries.
-*   **Pattern highlighting.** Basic keyword matching surfaces repeated themes, people, or places.
-*   **Standard agent endpoints.** Includes `/health` and `/graph` for fleet interoperability.
-*   **Modifiable analysis.** The pattern logic is simple and meant to be replaced or extended.
+---
 
 ## Quick Start
-1.  Fork this repository.
-2.  Deploy to Cloudflare Workers.
-3.  Your journal is ready. Edit `worker.ts` to change any behavior.
+1.  **Fork this repository.** The code is yours after forking.
+2.  Deploy it to Cloudflare Workers (typically under 2 minutes).
+3.  Start adding entries when you wake up. Recurring keywords will begin to surface after you have a few entries.
+
+---
+
+## Features
+- A single, distraction-free input box for groggy morning typing.
+- Automatic highlighting of repeated words and themes in your timeline.
+- A private, reverse-chronological log visible only to you.
+- Standard Fleet endpoints for potential future integration with other personal tools.
+- Zero runtime dependencies. All logic is in one `worker.ts` file.
+- No forced updates. It will continue to function as long as your Worker runs.
+
+---
+
+## What Makes It Different
+1.  **Fork-first ownership:** You deploy your own independent copy. There is no sign-up.
+2.  **Complete privacy:** Zero telemetry. No network calls leave your Cloudflare Worker.
+3.  **Transparent logic:** Pattern matching uses simple, readable keyword counting. You can inspect and modify it directly.
+
+---
 
 ## Limitations
-This is a foundation. The default analysis is basic keyword matching, not AI. For advanced features like sentiment tracking or LLM summaries, you will need to add that logic yourself.
+Pattern detection matches exact keywords only (e.g., "run" and "running" are separate). It typically requires 5 or more entries before recurring themes become clearly apparent. For advanced analysis like sentiment tracking or semantic grouping, you must add that logic yourself.
+
+---
 
 ## License
 MIT
 
-Superinstance & Lucineer (DiGennaro et al.).
-
----
-
-<div align="center">
-  <a href="https://the-fleet.casey-digennaro.workers.dev">The Fleet</a> • <a href="https://cocapn.ai">Cocapn</a>
-</div>
+<div style="text-align:center;padding:16px;color:#64748b;font-size:.8rem"><a href="https://the-fleet.casey-digennaro.workers.dev" style="color:#64748b">The Fleet</a> &middot; <a href="https://cocapn.ai" style="color:#64748b">Cocapn</a></div>
